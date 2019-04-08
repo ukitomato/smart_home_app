@@ -2,7 +2,13 @@ module SessionsHelper
 
   # 渡されたユーザーでログインする
   def log_in(user)
+
     session[:user_id] = user.id
+  end
+
+  def auth_hue_client
+    logger.debug('init hue')
+    @hue_client = Hue::Client.new
   end
 
   # ユーザーのセッションを永続的にする

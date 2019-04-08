@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
+  before_action :auth_hue_client
   protect_from_forgery with: :exception
   include SessionsHelper
+
+  def auth_hue_client
+    if @http_client.nil?
+      @http_client = HTTPClient.new
+    end
+  end
 
   private
 
@@ -12,4 +19,6 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+
 end

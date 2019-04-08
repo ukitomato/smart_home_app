@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  brightness: 1
+  temerature: 1
+  'on': false
+
+two:
+  id: 1
+  brightness: 1
+  temerature: 1
+  'on': false

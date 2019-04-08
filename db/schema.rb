@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190314074554) do
+ActiveRecord::Schema.define(version: 20190404084845) do
+
+  create_table "lights", force: :cascade do |t|
+    t.integer "light_id"
+    t.integer "brightness"
+    t.integer "temerature"
+    t.boolean "on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"

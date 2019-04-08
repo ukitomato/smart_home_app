@@ -1,21 +1,38 @@
 <% if logged_in? %>
+  <h1>Smart Home App</h1>
+
+
   <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-    <div class="col-md-8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+    <div class="col-md-12">
+      <p>Philips Hue</p>
     </div>
+
+    <%= form_tag("/lightson", method: 'get') do %>
+      <div class="form-group">
+        <div class="col-xs-2">
+          <%= label_tag(:light, "Hue Lights:", {class: 'label_tag'}) %>
+        </div>
+        <div class="col-xs-2">
+          <%= select_tag(:light_id, options_for_select([['All', 'all'], ['Living','living' ], ["Bedroom", 0], ["Living1", 1], ["Living2", 2], ["Living3", 3], ["Living4", 4]]), {autofocus: 'true', class: 'form-control'}) %>
+        </div>
+        <div class="col-xs-1">
+          <%= select_tag(:brightness, options_for_select([*(0..255)]), {autofocus: 'true', class: 'form-control'}) %>
+        </div>
+        <div class="col-xs-1">
+          <%= select_tag(:temparature, options_for_select([*(153..500)]), {autofocus: 'true', class: 'form-control'}) %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-3">
+          <%= submit_tag("ON", {autofocus: 'true', class: 'form-control'}) %>
+        </div>
+        <div class="col-xs-3">
+          <%= submit_tag("OFF", {autofocus: 'true', class: 'form-control'}) %>
+        </div>
+      </div>
+    <% end %>
   </div>
+
 <% else %>
   <div class="center jumbotron">
     <h1>Welcome to the Smart Home App</h1>

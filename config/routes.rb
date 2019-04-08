@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'lights/index'
+  get 'lights/show'
+  get 'lights/new'
+  get 'lightson', to: 'lights#edit'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -10,6 +15,8 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   get '/smart', to: 'static_pages#smart'
+  get '/feed', to: 'static_pages#feed'
+
   get '/signup', to: 'users#new'
 
   post '/signup', to: 'users#create'
