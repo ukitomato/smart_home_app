@@ -1,41 +1,15 @@
-# Ruby on Rails チュートリアルのサンプルアプリケーション
+# スマートホームアプリ
 
-これは、次の教材で作られたサンプルアプリケーションです。   
-[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
-[Michael Hartl](http://www.michaelhartl.com/) 著
+家のスマートデバイスを操作するWebアプリケーション(Ruby on Rails)です。
+現在導入予定のデバイスは、Philips Hue, RS-WFIREX4, BMP180 with Raspberry Piです。
+Philips Hue,  BM180 with Raspberry Piについては別途Flaskを用いて、Raspberry Pi上にサーバー起動させ外部からのアクセスを可能としています。
 
-## ライセンス
 
-[Ruby on Rails チュートリアル](https://railstutorial.jp/)内にある
-ソースコードはMITライセンスとBeerwareライセンスのもとで公開されています。
-詳細は [LICENSE.md](LICENSE.md) をご覧ください。
+# 参考
+Philips Hue API:https://developers.meethue.com/develop/tools-and-sdks/
+RS-WFIREX4:https://iot.ratocsystems.com/products/rs-wfirex4/
+BMP180:https://www.switch-science.com/catalog/1679/
 
-## 使い方
-
-このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
-その後、次のコマンドで必要になる RubyGems をインストールします。
-
-```
-$ bundle install --without production
-```
-
-その後、データベースへのマイグレーションを実行します。
-
-```
-$ rails db:migrate
-```
-
-最後に、テストを実行してうまく動いているかどうか確認してください。
-
-```
-$ rails test
-```
-
-テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-
-```
-$ rails server
-```
-
-詳しくは、[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
-を参考にしてください。
+Raspberry Pi上のFlaskサーバコード
+温湿度サーバ: https://github.com/ukitomato/TemperatureServer
+Hueサーバ: https://github.com/ukitomato/HueServer
